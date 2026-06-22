@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кафе "Студент"</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background: #f5f5f5; padding: 10px; }
+        header, main, footer { max-width: 600px; margin: 0 auto; }
+        header { background: #6f4e37; color: #fff; padding: 15px; text-align: center; border-radius: 6px; }
+        nav a { color: #fff; margin: 0 10px; text-decoration: none; }
+        section { background: #fff; padding: 15px; margin: 10px 0; border-radius: 6px; }
+        h2 { color: #6f4e37; border-bottom: 1px solid #ddd; margin-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .item { background: #fff8f5; padding: 8px; display: flex; justify-content: space-between; }
+        .promo { background: #ffe6e6; padding: 10px; border-radius: 4px; }
+        button { background: #6f4e37; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+        footer { text-align: center; font-size: 12px; color: #777; padding: 10px; }
+        
+        /* Адаптация под мобильные экраны */
+        max-width: 500px {
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Кафе "Студент"</h1>
+        <nav><a href="#menu">Меню</a><a href="#contacts">Контакты</a></nav>
+    </header>
+    <main>
+        <section id="menu">
+            <h2>Меню</h2>
+            <div class="grid">
+                <div class="item"><span>Капучино</span><strong>130₽</strong></div>
+                <div class="item"><span>Сэндвич</span><strong>150₽</strong></div>
+            </div>
+        </section>
+        <section>
+            <h2>Акции</h2>
+            <article class="promo"><strong>Студенческий час!</strong><p>-15% с 12:00 до 14:00.</p></article>
+        </section>
+        <section id="contacts">
+            <h2>Контакты</h2>
+            <p>📍 ул. Университетская, 5 | 🕒 Пн-Пт: 08:00—19:00</p>
+            <button id="btn">Мы открыты?</button>
+        </section>
+    </main>
+    <footer><p>&copy; 2026 Кафе</p></footer>
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            const h = new Date().getHours(), d = new Date().getDay();
+            alert(d >= 1 && d <= 5 && h >= 8 && h < 19 ? 'Открыты! ☕' : 'Закрыты 😴');
+        });
+    </script>
+</body>
+</html>
